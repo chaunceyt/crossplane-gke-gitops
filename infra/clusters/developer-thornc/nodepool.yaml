@@ -1,0 +1,13 @@
+apiVersion: container.gcp.crossplane.io/v1alpha1
+kind: NodePool
+metadata:
+  name: developer-thornc-nodepool
+spec:
+  forProvider:
+    initialNodeCount: 1
+    clusterRef:
+      name: developer-thornc
+  writeConnectionSecretsToNamespace: crossplane-system
+  providerConfigRef:
+    name: default
+  reclaimPolicy: Delete
