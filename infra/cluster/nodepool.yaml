@@ -1,0 +1,13 @@
+apiVersion: container.gcp.crossplane.io/v1alpha1
+kind: NodePool
+metadata:
+  name: developer-cthorn-nodepool
+spec:
+  forProvider:
+    initialNodeCount: 1
+    clusterRef:
+      name: developer-cthorn
+  writeConnectionSecretsToNamespace: crossplane-system
+  providerConfigRef:
+    name: default
+  reclaimPolicy: Delete
